@@ -109,6 +109,11 @@ static inline void load_default_network(const float *W1, const float *B1,
                                         const float *W2, const float *B2,
                                         const float *W3, const float *B3,
                                         const float *W4, const float *B4) {
+  /* Restore the default widths explicitly: a previous shaped upload ('S')
+   * may have left different values in the width registers. */
+  static const int def[4] = {64, 32, 16, 3};
+  for (int l = 0; l < 4; l++)
+    mlp_write_reg(0x10 + 4 * l, (u32)def[l]);
   load_weights_to_hw(W1, B1, 64,
                      64, // Layer 1: 64 neurons, 64 inputs (even with
                          // MLP_FEATURE_COUNT=40 the input is padded to 64)
@@ -116,6 +121,59 @@ static inline void load_default_network(const float *W1, const float *B1,
                      W3, B3, 16, 32, // Layer 3: 16 neurons, 32 inputs
                      W4, B4, 3, 16   // Layer 4:  3 neurons, 16 inputs
   );
+}
+
+/* Per-layer output-width registers of mlp_axi_wrapper (0x10, 0x14, 0x18,
+ * 0x1C). The issue FSM derives its iteration count and each layer's BRAM row
+ * base from these, so they must match the shape the weights were loaded with. */
+#define MLP_REG_LAYER_OUT(l) (0x10 + 4 * (l))
+#define MLP_MAX_WIDTH 64
+#define MLP_OUTPUTS 3
+
+/**
+ * @brief Load a network of arbitrary shape (within the hardware bounds) and
+ * set the layer-width registers to match.
+ *
+ * @param n_in  Number of network inputs (at most 64).
+ * @param n     Output width of each of the four layers; n[3] must be 3.
+ * @param blob  W1, B1, W2, B2, W3, B3, W4, B4 back to back, each W row-major
+ *              [n_out x n_in] with the real (untruncated) dimensions.
+ * @return 0 on success, -1 if the shape is outside the hardware bounds.
+ */
+static inline int load_shaped_network(int n_in, const int n[4],
+                                      const float *blob) {
+  if (n_in < 1 || n_in > MLP_MAX_WIDTH || n[3] != MLP_OUTPUTS)
+    return -1;
+  for (int l = 0; l < 4; l++)
+    if (n[l] < 1 || n[l] > MLP_MAX_WIDTH)
+      return -1;
+
+  /* Widths first: the engine is idle during a model upload, and the next
+   * inference must see widths and weights that agree. */
+  for (int l = 0; l < 4; l++)
+    mlp_write_reg(MLP_REG_LAYER_OUT(l), (u32)n[l]);
+
+  int base = 0;
+  int in = n_in;
+  const float *p = blob;
+  for (int l = 0; l < 4; l++) {
+    const float *W = p;
+    const float *B = W + n[l] * in;
+    load_layer_to_hw(&base, n[l], in, W, B);
+    p = B + n[l];
+    in = n[l];
+  }
+  return 0;
+}
+
+/* Number of floats in a shaped model blob. */
+static inline int shaped_model_floats(int n_in, const int n[4]) {
+  int total = 0, in = n_in;
+  for (int l = 0; l < 4; l++) {
+    total += n[l] * in + n[l];
+    in = n[l];
+  }
+  return total;
 }
 
 #endif // MLP_WEIGHT_LOADER_H

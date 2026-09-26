@@ -180,6 +180,9 @@ def main():
     ap.add_argument("--max-rows", type=int, default=0)
     ap.add_argument("--legacy-cast", action="store_true",
                     help="host cast'e doygunluk yamasi UYGULANMADIYSA kullan")
+    ap.add_argument("--real-shape", action="store_true",
+                    help="model was sent as a shaped '.shp' packet: compute the "
+                         "reference on the real, untruncated network")
     args = ap.parse_args()
 
     fpga, fpga_logits, has_logits, n_to, n_hdr = read_log(args.log)
@@ -195,14 +198,22 @@ def main():
     if n_to:
         print("  !! timeouts present; those rows are excluded from the comparison.")
 
-    (Wq, Bq), desc = load_model(args.model)
+    if args.real_shape:
+        # The legacy path (_pad) clips every network to 64-32-16-3, so a
+        # reference built through it cannot detect a truncated upload. The
+        # shaped path is computed on the network as trained.
+        from gen_shape_stim import real_layers, forward_real
+        layers = real_layers(args.model)
+        desc = "REAL shape 40->" + "->".join(str(W.shape[0]) for W, _ in layers)
+    else:
+        (Wq, Bq), desc = load_model(args.model)
     print(f"model             : {args.model}  [{desc}]")
     print(f"host cast         : {'WRAPPING (legacy)' if args.legacy_cast else 'SATURATING'}")
 
     x = parse_stream(args.stream, n, saturating=not args.legacy_cast)
     print(f"stream            : {args.stream}  feature range [{x.min()}, {x.max()}]")
 
-    logits = forward_q88(x, Wq, Bq)
+    logits = forward_real(x, layers)[:, :3] if args.real_shape else forward_q88(x, Wq, Bq)
     pred = argmax_fw(logits)
 
     ok = fpga >= 0

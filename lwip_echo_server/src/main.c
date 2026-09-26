@@ -312,6 +312,56 @@ void udp_recv_callback(void *arg, struct udp_pcb *pcb,
             break;
         }
 
+        case 0x03:
+        case 'S': {
+            /* Case 3: shaped model upload.
+             * Layout (little endian):
+             *   byte 0      'S'
+             *   bytes 1..3  padding
+             *   u32 x 5     n_in, n1, n2, n3, n4
+             *   float[]     W1 B1 W2 B2 W3 B3 W4 B4, real dimensions
+             * Unlike 'M', the network is not forced into the fixed 64-32-16-3
+             * layout: the layer-width registers are written with the real
+             * shape and the weights are loaded to match. */
+            u8 status = 0xFE;                        /* NAK unless loaded */
+            u32 dims[5];
+            if (p->tot_len >= 4 + sizeof(dims)) {
+                pbuf_copy_partial(p, dims, sizeof(dims), 4);
+                int n_in = (int)dims[0];
+                int n[4] = { (int)dims[1], (int)dims[2], (int)dims[3], (int)dims[4] };
+
+                /* Largest blob within the bounds: 64 inputs, 64-64-64-3. */
+                static float shaped_buffer[64*64*3 + 64*3 + 3*64 + 3];
+                int valid = (n_in >= 1 && n_in <= MLP_MAX_WIDTH && n[3] == MLP_OUTPUTS);
+                for (int l = 0; l < 3; l++)
+                    valid = valid && n[l] >= 1 && n[l] <= MLP_MAX_WIDTH;
+                int nf = valid ? shaped_model_floats(n_in, n) : 0;
+
+                if (valid && p->tot_len >= 4 + sizeof(dims) + nf * sizeof(float)) {
+                    pbuf_copy_partial(p, shaped_buffer, nf * sizeof(float),
+                                      4 + sizeof(dims));
+                    if (load_shaped_network(n_in, n, shaped_buffer) == 0) {
+                        status = 0xFF;
+                        /* The ARM baseline tables hold the fixed 64-32-16-3
+                         * layout; do not report a baseline for stale weights. */
+                        arm_weights_ready = 0;
+                        xil_printf("Shaped model loaded: %d-%d-%d-%d-%d\r\n",
+                                   n_in, n[0], n[1], n[2], n[3]);
+                    }
+                }
+            }
+            if (status != 0xFF)
+                xil_printf("Shaped model rejected\r\n");
+
+            struct pbuf *reply = pbuf_alloc(PBUF_TRANSPORT, 1, PBUF_RAM);
+            if (reply != NULL) {
+                ((u8 *)reply->payload)[0] = status;
+                udp_sendto(pcb, reply, addr, port);
+                pbuf_free(reply);
+            }
+            break;
+        }
+
         case 0x02:
         case 'D': {
             /* Case 2: live feature vector */

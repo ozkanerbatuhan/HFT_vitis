@@ -409,11 +409,20 @@ class HFTFrontendApp(TkinterDnDApp):
 
         target_file = self.model_filepath
         if target_file.endswith(".pth"):
-            processed_file = self.process_pth_model(target_file)
-            if not processed_file:
+            # Send the real shape ('S' packet): the firmware sets the engine's
+            # layer-width registers to match, so no layer is truncated.
+            # process_pth_model() (fixed 64-32-16-3 '.bin') is kept for the
+            # legacy 'M' path only.
+            try:
+                import shaped_model
+                target_file, n_in, shape, size = shaped_model.pth_to_shp(
+                    target_file, os.path.abspath("temp_weights.shp"))
+                self.log_message("SETUP", f"Shaped model {n_in}-{'-'.join(map(str, shape))} "
+                                          f"({size} bytes) -> {target_file}")
+            except Exception as e:
+                self.log_message("ERROR", f"Shaped model conversion failed: {e}")
                 self.btn_send_model.configure(state="normal")
                 return
-            target_file = processed_file
 
         self.log_message("SETUP", "Sending model to the FPGA, please wait...")
         self.send_command(f"MODEL:{target_file}")

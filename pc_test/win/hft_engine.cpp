@@ -7,6 +7,7 @@
 #include <thread>
 #include <atomic>
 #include <iomanip>
+#include <iterator>
 #include <mutex>
 #include <winsock2.h>
 #include <windows.h>
@@ -221,7 +222,32 @@ void process_command(string cmd) {
     if (cmd.find("MODEL:") == 0) {
         string filepath = cmd.substr(6);
         vector<float> floats;
-        
+
+        // Shaped model (.shp, shaped_model.py): the file is the complete 'S'
+        // packet and is sent unchanged; the firmware sets the layer widths.
+        if (filepath.size() > 4 && filepath.compare(filepath.size() - 4, 4, ".shp") == 0) {
+            ifstream file(filepath, ios::binary);
+            vector<char> payload((istreambuf_iterator<char>(file)), istreambuf_iterator<char>());
+            if (payload.size() < 24 || payload[0] != 'S') {
+                send_tcp_message("STATUS:ERROR_BAD_SHAPED_MODEL");
+                return;
+            }
+            sendto(udp_sock, payload.data(), (int)payload.size(), 0, (sockaddr*)&board_addr, sizeof(board_addr));
+
+            char rx_buf[64];
+            sockaddr_in from;
+            int fromlen = sizeof(from);
+            int n = recvfrom(udp_sock, rx_buf, sizeof(rx_buf), 0, (sockaddr*)&from, &fromlen);
+            if (n > 0 && static_cast<uint8_t>(rx_buf[0]) == 0xFF) {
+                send_tcp_message("STATUS:MODEL_OK");
+            } else if (n > 0 && static_cast<uint8_t>(rx_buf[0]) == 0xFE) {
+                send_tcp_message("STATUS:MODEL_REJECTED");
+            } else {
+                send_tcp_message("STATUS:TIMEOUT");
+            }
+            return;
+        }
+
         if (filepath.find(".bin") != string::npos) {
             ifstream file(filepath, ios::binary);
             if (file) {
