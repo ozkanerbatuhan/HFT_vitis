@@ -1,0 +1,533 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2025.2 (win64) Build 6299465 Fri Nov 14 19:35:11 GMT 2025
+| Date         : Sat Oct 17 11:52:44 2026
+| Host         : Batu running 64-bit major release  (build 9200)
+| Command      : report_timing_summary -max_paths 3 -file D:/hls_prj/40-64-64-32-3_rf128_resource/timing_ooc.rpt
+| Design       : mlp_hls
+| Device       : 7z020-clg484
+| Speed File   : -1  PRODUCTION 1.12 2019-11-22
+| Design State : Routed
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Timing Summary Report
+
+------------------------------------------------------------------------------------------------
+| Timer Settings
+| --------------
+------------------------------------------------------------------------------------------------
+
+  Enable Multi Corner Analysis               :  Yes
+  Enable Pessimism Removal                   :  Yes
+  Pessimism Removal Resolution               :  Nearest Common Node
+  Enable Input Delay Default Clock           :  No
+  Enable Preset / Clear Arcs                 :  No
+  Disable Flight Delays                      :  No
+  Ignore I/O Paths                           :  No
+  Timing Early Launch at Borrowing Latches   :  No
+  Borrow Time for Max Delay Exceptions       :  Yes
+  Merge Timing Exceptions                    :  Yes
+  Inter-SLR Compensation                     :  Conservative
+
+  Corner  Analyze    Analyze    
+  Name    Max Paths  Min Paths  
+  ------  ---------  ---------  
+  Slow    Yes        Yes        
+  Fast    Yes        Yes        
+
+
+------------------------------------------------------------------------------------------------
+| Report Methodology
+| ------------------
+------------------------------------------------------------------------------------------------
+
+No report available as report_methodology has not been run prior. Run report_methodology on the current design for the summary of methodology violations.
+
+
+
+check_timing report
+
+Table of Contents
+-----------------
+1. checking no_clock (0)
+2. checking constant_clock (0)
+3. checking pulse_width_clock (0)
+4. checking unconstrained_internal_endpoints (0)
+5. checking no_input_delay (643)
+6. checking no_output_delay (54)
+7. checking multiple_clock (0)
+8. checking generated_clocks (0)
+9. checking loops (0)
+10. checking partial_input_delay (0)
+11. checking partial_output_delay (0)
+12. checking latch_loops (0)
+
+1. checking no_clock (0)
+------------------------
+ There are 0 register/latch pins with no clock.
+
+
+2. checking constant_clock (0)
+------------------------------
+ There are 0 register/latch pins with constant_clock.
+
+
+3. checking pulse_width_clock (0)
+---------------------------------
+ There are 0 register/latch pins which need pulse_width check
+
+
+4. checking unconstrained_internal_endpoints (0)
+------------------------------------------------
+ There are 0 pins that are not constrained for maximum delay.
+
+ There are 0 pins that are not constrained for maximum delay due to constant clock.
+
+
+5. checking no_input_delay (643)
+--------------------------------
+ There are 643 input ports with no input delay specified. (HIGH)
+
+ There are 0 input ports with no input delay but user has a false path constraint.
+
+
+6. checking no_output_delay (54)
+--------------------------------
+ There are 54 ports with no output delay specified. (HIGH)
+
+ There are 0 ports with no output delay but user has a false path constraint
+
+ There are 0 ports with no output delay but with a timing clock defined on it or propagating through it
+
+
+7. checking multiple_clock (0)
+------------------------------
+ There are 0 register/latch pins with multiple clocks.
+
+
+8. checking generated_clocks (0)
+--------------------------------
+ There are 0 generated clocks that are not connected to a clock source.
+
+
+9. checking loops (0)
+---------------------
+ There are 0 combinational loops in the design.
+
+
+10. checking partial_input_delay (0)
+------------------------------------
+ There are 0 input ports with partial input delay specified.
+
+
+11. checking partial_output_delay (0)
+-------------------------------------
+ There are 0 ports with partial output delay specified.
+
+
+12. checking latch_loops (0)
+----------------------------
+ There are 0 combinational latch loops in the design through latch input
+
+
+
+------------------------------------------------------------------------------------------------
+| Design Timing Summary
+| ---------------------
+------------------------------------------------------------------------------------------------
+
+    WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints     WPWS(ns)     TPWS(ns)  TPWS Failing Endpoints  TPWS Total Endpoints  
+    -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------     --------     --------  ----------------------  --------------------  
+     -1.065     -398.187                   1720                89752        0.096        0.000                      0                89752        3.500        0.000                       0                 39719  
+
+
+Timing constraints are not met.
+
+
+------------------------------------------------------------------------------------------------
+| Clock Summary
+| -------------
+------------------------------------------------------------------------------------------------
+
+Clock   Waveform(ns)         Period(ns)      Frequency(MHz)
+-----   ------------         ----------      --------------
+ap_clk  {0.000 4.000}        8.000           125.000         
+
+
+------------------------------------------------------------------------------------------------
+| Intra Clock Table
+| -----------------
+------------------------------------------------------------------------------------------------
+
+Clock             WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints     WPWS(ns)     TPWS(ns)  TPWS Failing Endpoints  TPWS Total Endpoints  
+-----             -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------     --------     --------  ----------------------  --------------------  
+ap_clk             -1.065     -398.187                   1720                89752        0.096        0.000                      0                89752        3.500        0.000                       0                 39719  
+
+
+------------------------------------------------------------------------------------------------
+| Inter Clock Table
+| -----------------
+------------------------------------------------------------------------------------------------
+
+From Clock    To Clock          WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints  
+----------    --------          -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------  
+
+
+------------------------------------------------------------------------------------------------
+| Other Path Groups Table
+| -----------------------
+------------------------------------------------------------------------------------------------
+
+Path Group    From Clock    To Clock          WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints  
+----------    ----------    --------          -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------  
+
+
+------------------------------------------------------------------------------------------------
+| Timing Details
+| --------------
+------------------------------------------------------------------------------------------------
+
+
+---------------------------------------------------------------------------------------------------
+From Clock:  ap_clk
+  To Clock:  ap_clk
+
+Setup :         1720  Failing Endpoints,  Worst Slack       -1.065ns,  Total Violation     -398.187ns
+Hold  :            0  Failing Endpoints,  Worst Slack        0.096ns,  Total Violation        0.000ns
+PW    :            0  Failing Endpoints,  Worst Slack        3.500ns,  Total Violation        0.000ns
+---------------------------------------------------------------------------------------------------
+
+
+Max Delay Paths
+--------------------------------------------------------------------------------------
+Slack (VIOLATED) :        -1.065ns  (required time - arrival time)
+  Source:                 dense_resource_rf_gt_nin_rem0_ap_fixed_ap_fixed_16_8_5_0_0_config6_U0/out_index_reg_5379_pp0_iter3_reg_reg[0]/C
+                            (rising edge-triggered cell FDRE clocked by ap_clk  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Destination:            dense_resource_rf_gt_nin_rem0_ap_fixed_ap_fixed_16_8_5_0_0_config6_U0/icmp_ln144_17_reg_5902_reg[0]/D
+                            (rising edge-triggered cell FDRE clocked by ap_clk  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Path Group:             ap_clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            8.000ns  (ap_clk rise@8.000ns - ap_clk rise@0.000ns)
+  Data Path Delay:        9.012ns  (logic 3.158ns (35.040%)  route 5.854ns (64.960%))
+  Logic Levels:           7  (DSP48E1=1 LUT4=2 LUT5=1 LUT6=3)
+  Clock Path Skew:        -0.049ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    0.924ns = ( 8.924 - 8.000 ) 
+    Source Clock Delay      (SCD):    0.973ns
+    Clock Pessimism Removal (CPR):    0.000ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock ap_clk rise edge)     0.000     0.000 r  
+                                                      0.000     0.000 r  ap_clk (IN)
+                         net (fo=39718, unset)        0.973     0.973    dense_resource_rf_gt_nin_rem0_ap_fixed_ap_fixed_16_8_5_0_0_config6_U0/ap_clk
+    SLICE_X57Y109        FDRE                                         r  dense_resource_rf_gt_nin_rem0_ap_fixed_ap_fixed_16_8_5_0_0_config6_U0/out_index_reg_5379_pp0_iter3_reg_reg[0]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X57Y109        FDRE (Prop_fdre_C_Q)         0.419     1.392 r  dense_resource_rf_gt_nin_rem0_ap_fixed_ap_fixed_16_8_5_0_0_config6_U0/out_index_reg_5379_pp0_iter3_reg_reg[0]/Q
+                         net (fo=84, routed)          1.376     2.768    dense_resource_rf_gt_nin_rem0_ap_fixed_ap_fixed_16_8_5_0_0_config6_U0/mac_muladd_15ns_7s_40s_41_3_1_U290/mlp_hls_mac_muladd_15ns_7s_40s_41_3_1_DSP48_0_U/out_index_reg_5379_pp0_iter3_reg[0]
+    SLICE_X51Y110        LUT5 (Prop_lut5_I3_O)        0.299     3.067 r  dense_resource_rf_gt_nin_rem0_ap_fixed_ap_fixed_16_8_5_0_0_config6_U0/mac_muladd_15ns_7s_40s_41_3_1_U290/mlp_hls_mac_muladd_15ns_7s_40s_41_3_1_DSP48_0_U/acc_8_reg_3008[34]_i_1/O
+                         net (fo=5, routed)           0.446     3.512    dense_resource_rf_gt_nin_rem0_ap_fixed_ap_fixed_16_8_5_0_0_config6_U0/mac_muladd_15ns_7s_40s_41_3_1_U290/mlp_hls_mac_muladd_15ns_7s_40s_41_3_1_DSP48_0_U/acc_88_fu_4670_p3[26]
+    SLICE_X51Y110        LUT4 (Prop_lut4_I2_O)        0.124     3.636 f  dense_resource_rf_gt_nin_rem0_ap_fixed_ap_fixed_16_8_5_0_0_config6_U0/mac_muladd_15ns_7s_40s_41_3_1_U290/mlp_hls_mac_muladd_15ns_7s_40s_41_3_1_DSP48_0_U/p_i_41__35/O
+                         net (fo=1, routed)           0.485     4.121    dense_resource_rf_gt_nin_rem0_ap_fixed_ap_fixed_16_8_5_0_0_config6_U0/mac_muladd_15ns_7s_40s_41_3_1_U290/mlp_hls_mac_muladd_15ns_7s_40s_41_3_1_DSP48_0_U/p_i_41__35_n_0
+    SLICE_X51Y108        LUT6 (Prop_lut6_I4_O)        0.124     4.245 r  dense_resource_rf_gt_nin_rem0_ap_fixed_ap_fixed_16_8_5_0_0_config6_U0/mac_muladd_15ns_7s_40s_41_3_1_U290/mlp_hls_mac_muladd_15ns_7s_40s_41_3_1_DSP48_0_U/p_i_6__49/O
+                         net (fo=1, routed)           0.906     5.151    dense_resource_rf_gt_nin_rem0_ap_fixed_ap_fixed_16_8_5_0_0_config6_U0/mac_muladd_15ns_7s_40s_41_3_1_U290/mlp_hls_mac_muladd_15ns_7s_40s_41_3_1_DSP48_0_U/p_i_6__49_n_0
+    DSP48_X2Y42          DSP48E1 (Prop_dsp48e1_C[34]_P[27])
+                                                      1.820     6.971 f  dense_resource_rf_gt_nin_rem0_ap_fixed_ap_fixed_16_8_5_0_0_config6_U0/mac_muladd_15ns_7s_40s_41_3_1_U290/mlp_hls_mac_muladd_15ns_7s_40s_41_3_1_DSP48_0_U/p/P[27]
+                         net (fo=2, routed)           1.255     8.226    dense_resource_rf_gt_nin_rem0_ap_fixed_ap_fixed_16_8_5_0_0_config6_U0/mac_muladd_15ns_7s_40s_41_3_1_U290/mlp_hls_mac_muladd_15ns_7s_40s_41_3_1_DSP48_0_U/D[27]
+    SLICE_X42Y107        LUT4 (Prop_lut4_I0_O)        0.124     8.350 f  dense_resource_rf_gt_nin_rem0_ap_fixed_ap_fixed_16_8_5_0_0_config6_U0/mac_muladd_15ns_7s_40s_41_3_1_U290/mlp_hls_mac_muladd_15ns_7s_40s_41_3_1_DSP48_0_U/icmp_ln144_17_reg_5902[0]_i_10/O
+                         net (fo=1, routed)           0.738     9.088    dense_resource_rf_gt_nin_rem0_ap_fixed_ap_fixed_16_8_5_0_0_config6_U0/mac_muladd_15ns_7s_40s_41_3_1_U290/mlp_hls_mac_muladd_15ns_7s_40s_41_3_1_DSP48_0_U/icmp_ln144_17_reg_5902[0]_i_10_n_0
+    SLICE_X52Y107        LUT6 (Prop_lut6_I4_O)        0.124     9.212 r  dense_resource_rf_gt_nin_rem0_ap_fixed_ap_fixed_16_8_5_0_0_config6_U0/mac_muladd_15ns_7s_40s_41_3_1_U290/mlp_hls_mac_muladd_15ns_7s_40s_41_3_1_DSP48_0_U/icmp_ln144_17_reg_5902[0]_i_5/O
+                         net (fo=1, routed)           0.650     9.861    dense_resource_rf_gt_nin_rem0_ap_fixed_ap_fixed_16_8_5_0_0_config6_U0/mac_muladd_15ns_7s_40s_41_3_1_U290/mlp_hls_mac_muladd_15ns_7s_40s_41_3_1_DSP48_0_U/icmp_ln144_17_reg_5902[0]_i_5_n_0
+    SLICE_X52Y107        LUT6 (Prop_lut6_I5_O)        0.124     9.985 r  dense_resource_rf_gt_nin_rem0_ap_fixed_ap_fixed_16_8_5_0_0_config6_U0/mac_muladd_15ns_7s_40s_41_3_1_U290/mlp_hls_mac_muladd_15ns_7s_40s_41_3_1_DSP48_0_U/icmp_ln144_17_reg_5902[0]_i_1/O
+                         net (fo=1, routed)           0.000     9.985    dense_resource_rf_gt_nin_rem0_ap_fixed_ap_fixed_16_8_5_0_0_config6_U0/mac_muladd_15ns_7s_40s_41_3_1_U290_n_146
+    SLICE_X52Y107        FDRE                                         r  dense_resource_rf_gt_nin_rem0_ap_fixed_ap_fixed_16_8_5_0_0_config6_U0/icmp_ln144_17_reg_5902_reg[0]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock ap_clk rise edge)     8.000     8.000 r  
+                                                      0.000     8.000 r  ap_clk (IN)
+                         net (fo=39718, unset)        0.924     8.924    dense_resource_rf_gt_nin_rem0_ap_fixed_ap_fixed_16_8_5_0_0_config6_U0/ap_clk
+    SLICE_X52Y107        FDRE                                         r  dense_resource_rf_gt_nin_rem0_ap_fixed_ap_fixed_16_8_5_0_0_config6_U0/icmp_ln144_17_reg_5902_reg[0]/C
+                         clock pessimism              0.000     8.924    
+                         clock uncertainty           -0.035     8.889    
+    SLICE_X52Y107        FDRE (Setup_fdre_C_D)        0.031     8.920    dense_resource_rf_gt_nin_rem0_ap_fixed_ap_fixed_16_8_5_0_0_config6_U0/icmp_ln144_17_reg_5902_reg[0]
+  -------------------------------------------------------------------
+                         required time                          8.920    
+                         arrival time                          -9.985    
+  -------------------------------------------------------------------
+                         slack                                 -1.065    
+
+Slack (VIOLATED) :        -1.062ns  (required time - arrival time)
+  Source:                 dense_resource_rf_gt_nin_rem0_ap_fixed_ap_fixed_16_8_5_0_0_config6_U0/out_index_reg_5379_pp0_iter3_reg_reg[0]_rep__7/C
+                            (rising edge-triggered cell FDRE clocked by ap_clk  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Destination:            dense_resource_rf_gt_nin_rem0_ap_fixed_ap_fixed_16_8_5_0_0_config6_U0/icmp_ln144_8_reg_5704_reg[0]/D
+                            (rising edge-triggered cell FDRE clocked by ap_clk  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Path Group:             ap_clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            8.000ns  (ap_clk rise@8.000ns - ap_clk rise@0.000ns)
+  Data Path Delay:        9.009ns  (logic 3.082ns (34.208%)  route 5.927ns (65.792%))
+  Logic Levels:           7  (DSP48E1=1 LUT4=2 LUT5=1 LUT6=3)
+  Clock Path Skew:        -0.049ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    0.924ns = ( 8.924 - 8.000 ) 
+    Source Clock Delay      (SCD):    0.973ns
+    Clock Pessimism Removal (CPR):    0.000ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock ap_clk rise edge)     0.000     0.000 r  
+                                                      0.000     0.000 r  ap_clk (IN)
+                         net (fo=39718, unset)        0.973     0.973    dense_resource_rf_gt_nin_rem0_ap_fixed_ap_fixed_16_8_5_0_0_config6_U0/ap_clk
+    SLICE_X54Y100        FDRE                                         r  dense_resource_rf_gt_nin_rem0_ap_fixed_ap_fixed_16_8_5_0_0_config6_U0/out_index_reg_5379_pp0_iter3_reg_reg[0]_rep__7/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X54Y100        FDRE (Prop_fdre_C_Q)         0.518     1.491 r  dense_resource_rf_gt_nin_rem0_ap_fixed_ap_fixed_16_8_5_0_0_config6_U0/out_index_reg_5379_pp0_iter3_reg_reg[0]_rep__7/Q
+                         net (fo=84, routed)          1.292     2.783    dense_resource_rf_gt_nin_rem0_ap_fixed_ap_fixed_16_8_5_0_0_config6_U0/mac_muladd_16s_15ns_40s_41_3_1_U281/mlp_hls_mac_muladd_16s_15ns_40s_41_3_1_DSP48_0_U/acc_26_reg_2738_reg[23]
+    SLICE_X52Y97         LUT5 (Prop_lut5_I3_O)        0.124     2.907 r  dense_resource_rf_gt_nin_rem0_ap_fixed_ap_fixed_16_8_5_0_0_config6_U0/mac_muladd_16s_15ns_40s_41_3_1_U281/mlp_hls_mac_muladd_16s_15ns_40s_41_3_1_DSP48_0_U/acc_26_reg_2738[23]_i_1/O
+                         net (fo=6, routed)           0.433     3.341    dense_resource_rf_gt_nin_rem0_ap_fixed_ap_fixed_16_8_5_0_0_config6_U0/mac_muladd_16s_15ns_40s_41_3_1_U281/mlp_hls_mac_muladd_16s_15ns_40s_41_3_1_DSP48_0_U/acc_58_fu_4436_p3[15]
+    SLICE_X52Y97         LUT4 (Prop_lut4_I2_O)        0.124     3.465 r  dense_resource_rf_gt_nin_rem0_ap_fixed_ap_fixed_16_8_5_0_0_config6_U0/mac_muladd_16s_15ns_40s_41_3_1_U281/mlp_hls_mac_muladd_16s_15ns_40s_41_3_1_DSP48_0_U/select_ln144_22_reg_5715[23]_i_1/O
+                         net (fo=2, routed)           0.795     4.259    dense_resource_rf_gt_nin_rem0_ap_fixed_ap_fixed_16_8_5_0_0_config6_U0/mac_muladd_16s_15ns_40s_41_3_1_U281/mlp_hls_mac_muladd_16s_15ns_40s_41_3_1_DSP48_0_U/ap_enable_reg_pp0_iter4_reg_rep__4_2
+    SLICE_X42Y96         LUT6 (Prop_lut6_I5_O)        0.124     4.383 r  dense_resource_rf_gt_nin_rem0_ap_fixed_ap_fixed_16_8_5_0_0_config6_U0/mac_muladd_16s_15ns_40s_41_3_1_U281/mlp_hls_mac_muladd_16s_15ns_40s_41_3_1_DSP48_0_U/p_i_17__57/O
+                         net (fo=1, routed)           0.703     5.086    dense_resource_rf_gt_nin_rem0_ap_fixed_ap_fixed_16_8_5_0_0_config6_U0/mac_muladd_16s_15ns_40s_41_3_1_U281/mlp_hls_mac_muladd_16s_15ns_40s_41_3_1_DSP48_0_U/p_i_17__57_n_0
+    DSP48_X2Y38          DSP48E1 (Prop_dsp48e1_C[23]_P[29])
+                                                      1.820     6.906 f  dense_resource_rf_gt_nin_rem0_ap_fixed_ap_fixed_16_8_5_0_0_config6_U0/mac_muladd_16s_15ns_40s_41_3_1_U281/mlp_hls_mac_muladd_16s_15ns_40s_41_3_1_DSP48_0_U/p/P[29]
+                         net (fo=2, routed)           1.200     8.106    dense_resource_rf_gt_nin_rem0_ap_fixed_ap_fixed_16_8_5_0_0_config6_U0/mac_muladd_16s_15ns_40s_41_3_1_U281/mlp_hls_mac_muladd_16s_15ns_40s_41_3_1_DSP48_0_U/D[29]
+    SLICE_X43Y100        LUT4 (Prop_lut4_I0_O)        0.124     8.230 f  dense_resource_rf_gt_nin_rem0_ap_fixed_ap_fixed_16_8_5_0_0_config6_U0/mac_muladd_16s_15ns_40s_41_3_1_U281/mlp_hls_mac_muladd_16s_15ns_40s_41_3_1_DSP48_0_U/icmp_ln144_8_reg_5704[0]_i_11/O
+                         net (fo=1, routed)           0.885     9.115    dense_resource_rf_gt_nin_rem0_ap_fixed_ap_fixed_16_8_5_0_0_config6_U0/mac_muladd_16s_15ns_40s_41_3_1_U281/mlp_hls_mac_muladd_16s_15ns_40s_41_3_1_DSP48_0_U/icmp_ln144_8_reg_5704[0]_i_11_n_0
+    SLICE_X54Y99         LUT6 (Prop_lut6_I5_O)        0.124     9.239 r  dense_resource_rf_gt_nin_rem0_ap_fixed_ap_fixed_16_8_5_0_0_config6_U0/mac_muladd_16s_15ns_40s_41_3_1_U281/mlp_hls_mac_muladd_16s_15ns_40s_41_3_1_DSP48_0_U/icmp_ln144_8_reg_5704[0]_i_5/O
+                         net (fo=1, routed)           0.619     9.858    dense_resource_rf_gt_nin_rem0_ap_fixed_ap_fixed_16_8_5_0_0_config6_U0/mac_muladd_16s_15ns_40s_41_3_1_U281/mlp_hls_mac_muladd_16s_15ns_40s_41_3_1_DSP48_0_U/icmp_ln144_8_reg_5704[0]_i_5_n_0
+    SLICE_X55Y99         LUT6 (Prop_lut6_I5_O)        0.124     9.982 r  dense_resource_rf_gt_nin_rem0_ap_fixed_ap_fixed_16_8_5_0_0_config6_U0/mac_muladd_16s_15ns_40s_41_3_1_U281/mlp_hls_mac_muladd_16s_15ns_40s_41_3_1_DSP48_0_U/icmp_ln144_8_reg_5704[0]_i_1/O
+                         net (fo=1, routed)           0.000     9.982    dense_resource_rf_gt_nin_rem0_ap_fixed_ap_fixed_16_8_5_0_0_config6_U0/mac_muladd_16s_15ns_40s_41_3_1_U281_n_135
+    SLICE_X55Y99         FDRE                                         r  dense_resource_rf_gt_nin_rem0_ap_fixed_ap_fixed_16_8_5_0_0_config6_U0/icmp_ln144_8_reg_5704_reg[0]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock ap_clk rise edge)     8.000     8.000 r  
+                                                      0.000     8.000 r  ap_clk (IN)
+                         net (fo=39718, unset)        0.924     8.924    dense_resource_rf_gt_nin_rem0_ap_fixed_ap_fixed_16_8_5_0_0_config6_U0/ap_clk
+    SLICE_X55Y99         FDRE                                         r  dense_resource_rf_gt_nin_rem0_ap_fixed_ap_fixed_16_8_5_0_0_config6_U0/icmp_ln144_8_reg_5704_reg[0]/C
+                         clock pessimism              0.000     8.924    
+                         clock uncertainty           -0.035     8.889    
+    SLICE_X55Y99         FDRE (Setup_fdre_C_D)        0.031     8.920    dense_resource_rf_gt_nin_rem0_ap_fixed_ap_fixed_16_8_5_0_0_config6_U0/icmp_ln144_8_reg_5704_reg[0]
+  -------------------------------------------------------------------
+                         required time                          8.920    
+                         arrival time                          -9.982    
+  -------------------------------------------------------------------
+                         slack                                 -1.062    
+
+Slack (VIOLATED) :        -0.965ns  (required time - arrival time)
+  Source:                 dense_resource_rf_gt_nin_rem0_ap_fixed_ap_fixed_16_8_5_0_0_config4_U0/icmp_ln144_21_reg_8100_reg[0]/C
+                            (rising edge-triggered cell FDRE clocked by ap_clk  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Destination:            dense_resource_rf_gt_nin_rem0_ap_fixed_ap_fixed_16_8_5_0_0_config4_U0/icmp_ln144_21_reg_8100_reg[0]/D
+                            (rising edge-triggered cell FDRE clocked by ap_clk  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Path Group:             ap_clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            8.000ns  (ap_clk rise@8.000ns - ap_clk rise@0.000ns)
+  Data Path Delay:        8.958ns  (logic 3.082ns (34.407%)  route 5.876ns (65.593%))
+  Logic Levels:           7  (DSP48E1=1 LUT4=1 LUT5=1 LUT6=4)
+  Clock Path Skew:        -0.049ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    0.924ns = ( 8.924 - 8.000 ) 
+    Source Clock Delay      (SCD):    0.973ns
+    Clock Pessimism Removal (CPR):    0.000ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock ap_clk rise edge)     0.000     0.000 r  
+                                                      0.000     0.000 r  ap_clk (IN)
+                         net (fo=39718, unset)        0.973     0.973    dense_resource_rf_gt_nin_rem0_ap_fixed_ap_fixed_16_8_5_0_0_config4_U0/ap_clk
+    SLICE_X82Y34         FDRE                                         r  dense_resource_rf_gt_nin_rem0_ap_fixed_ap_fixed_16_8_5_0_0_config4_U0/icmp_ln144_21_reg_8100_reg[0]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X82Y34         FDRE (Prop_fdre_C_Q)         0.518     1.491 r  dense_resource_rf_gt_nin_rem0_ap_fixed_ap_fixed_16_8_5_0_0_config4_U0/icmp_ln144_21_reg_8100_reg[0]/Q
+                         net (fo=85, routed)          1.224     2.715    dense_resource_rf_gt_nin_rem0_ap_fixed_ap_fixed_16_8_5_0_0_config4_U0/mac_muladd_16s_15ns_40s_41_3_1_U112/mlp_hls_mac_muladd_16s_15ns_40s_41_3_1_DSP48_0_U/acc_173_reg_2797_reg[0]
+    SLICE_X79Y31         LUT5 (Prop_lut5_I1_O)        0.124     2.839 r  dense_resource_rf_gt_nin_rem0_ap_fixed_ap_fixed_16_8_5_0_0_config4_U0/mac_muladd_16s_15ns_40s_41_3_1_U112/mlp_hls_mac_muladd_16s_15ns_40s_41_3_1_DSP48_0_U/acc_174_reg_2782[7]_i_1/O
+                         net (fo=2, routed)           0.351     3.190    dense_resource_rf_gt_nin_rem0_ap_fixed_ap_fixed_16_8_5_0_0_config4_U0/mac_muladd_16s_15ns_40s_41_3_1_U112/mlp_hls_mac_muladd_16s_15ns_40s_41_3_1_DSP48_0_U/select_ln144_64_reg_8111_reg[7]
+    SLICE_X78Y31         LUT4 (Prop_lut4_I0_O)        0.124     3.314 r  dense_resource_rf_gt_nin_rem0_ap_fixed_ap_fixed_16_8_5_0_0_config4_U0/mac_muladd_16s_15ns_40s_41_3_1_U112/mlp_hls_mac_muladd_16s_15ns_40s_41_3_1_DSP48_0_U/select_ln144_64_reg_8111[7]_i_1/O
+                         net (fo=2, routed)           0.685     3.999    dense_resource_rf_gt_nin_rem0_ap_fixed_ap_fixed_16_8_5_0_0_config4_U0/mac_muladd_16s_15ns_40s_41_3_1_U112/mlp_hls_mac_muladd_16s_15ns_40s_41_3_1_DSP48_0_U/icmp_ln135_reg_7639_pp0_iter3_reg_reg[0]_rep__22
+    SLICE_X78Y31         LUT6 (Prop_lut6_I5_O)        0.124     4.123 r  dense_resource_rf_gt_nin_rem0_ap_fixed_ap_fixed_16_8_5_0_0_config4_U0/mac_muladd_16s_15ns_40s_41_3_1_U112/mlp_hls_mac_muladd_16s_15ns_40s_41_3_1_DSP48_0_U/p_i_33__16/O
+                         net (fo=1, routed)           1.018     5.141    dense_resource_rf_gt_nin_rem0_ap_fixed_ap_fixed_16_8_5_0_0_config4_U0/mac_muladd_16s_15ns_40s_41_3_1_U112/mlp_hls_mac_muladd_16s_15ns_40s_41_3_1_DSP48_0_U/p_i_33__16_n_0
+    DSP48_X3Y14          DSP48E1 (Prop_dsp48e1_C[7]_P[7])
+                                                      1.820     6.961 f  dense_resource_rf_gt_nin_rem0_ap_fixed_ap_fixed_16_8_5_0_0_config4_U0/mac_muladd_16s_15ns_40s_41_3_1_U112/mlp_hls_mac_muladd_16s_15ns_40s_41_3_1_DSP48_0_U/p/P[7]
+                         net (fo=2, routed)           1.155     8.116    dense_resource_rf_gt_nin_rem0_ap_fixed_ap_fixed_16_8_5_0_0_config4_U0/mac_muladd_16s_15ns_40s_41_3_1_U112/mlp_hls_mac_muladd_16s_15ns_40s_41_3_1_DSP48_0_U/D[7]
+    SLICE_X93Y37         LUT6 (Prop_lut6_I3_O)        0.124     8.240 f  dense_resource_rf_gt_nin_rem0_ap_fixed_ap_fixed_16_8_5_0_0_config4_U0/mac_muladd_16s_15ns_40s_41_3_1_U112/mlp_hls_mac_muladd_16s_15ns_40s_41_3_1_DSP48_0_U/icmp_ln144_21_reg_8100[0]_i_8/O
+                         net (fo=1, routed)           0.710     8.950    dense_resource_rf_gt_nin_rem0_ap_fixed_ap_fixed_16_8_5_0_0_config4_U0/mac_muladd_16s_15ns_40s_41_3_1_U112/mlp_hls_mac_muladd_16s_15ns_40s_41_3_1_DSP48_0_U/icmp_ln144_21_reg_8100[0]_i_8_n_0
+    SLICE_X88Y34         LUT6 (Prop_lut6_I0_O)        0.124     9.074 f  dense_resource_rf_gt_nin_rem0_ap_fixed_ap_fixed_16_8_5_0_0_config4_U0/mac_muladd_16s_15ns_40s_41_3_1_U112/mlp_hls_mac_muladd_16s_15ns_40s_41_3_1_DSP48_0_U/icmp_ln144_21_reg_8100[0]_i_4/O
+                         net (fo=1, routed)           0.733     9.807    dense_resource_rf_gt_nin_rem0_ap_fixed_ap_fixed_16_8_5_0_0_config4_U0/mac_muladd_16s_15ns_40s_41_3_1_U112/mlp_hls_mac_muladd_16s_15ns_40s_41_3_1_DSP48_0_U/icmp_ln144_21_reg_8100[0]_i_4_n_0
+    SLICE_X82Y34         LUT6 (Prop_lut6_I4_O)        0.124     9.931 r  dense_resource_rf_gt_nin_rem0_ap_fixed_ap_fixed_16_8_5_0_0_config4_U0/mac_muladd_16s_15ns_40s_41_3_1_U112/mlp_hls_mac_muladd_16s_15ns_40s_41_3_1_DSP48_0_U/icmp_ln144_21_reg_8100[0]_i_1/O
+                         net (fo=1, routed)           0.000     9.931    dense_resource_rf_gt_nin_rem0_ap_fixed_ap_fixed_16_8_5_0_0_config4_U0/mac_muladd_16s_15ns_40s_41_3_1_U112_n_40
+    SLICE_X82Y34         FDRE                                         r  dense_resource_rf_gt_nin_rem0_ap_fixed_ap_fixed_16_8_5_0_0_config4_U0/icmp_ln144_21_reg_8100_reg[0]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock ap_clk rise edge)     8.000     8.000 r  
+                                                      0.000     8.000 r  ap_clk (IN)
+                         net (fo=39718, unset)        0.924     8.924    dense_resource_rf_gt_nin_rem0_ap_fixed_ap_fixed_16_8_5_0_0_config4_U0/ap_clk
+    SLICE_X82Y34         FDRE                                         r  dense_resource_rf_gt_nin_rem0_ap_fixed_ap_fixed_16_8_5_0_0_config4_U0/icmp_ln144_21_reg_8100_reg[0]/C
+                         clock pessimism              0.000     8.924    
+                         clock uncertainty           -0.035     8.889    
+    SLICE_X82Y34         FDRE (Setup_fdre_C_D)        0.077     8.966    dense_resource_rf_gt_nin_rem0_ap_fixed_ap_fixed_16_8_5_0_0_config4_U0/icmp_ln144_21_reg_8100_reg[0]
+  -------------------------------------------------------------------
+                         required time                          8.966    
+                         arrival time                          -9.931    
+  -------------------------------------------------------------------
+                         slack                                 -0.965    
+
+
+
+
+
+Min Delay Paths
+--------------------------------------------------------------------------------------
+Slack (MET) :             0.096ns  (arrival time - required time)
+  Source:                 relu_ap_fixed_16_8_5_0_0_ap_fixed_16_8_5_0_0_relu_config3_U0/ap_return_57_preg_reg[7]/C
+                            (rising edge-triggered cell FDRE clocked by ap_clk  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Destination:            layer3_out_57_U/U_mlp_hls_fifo_w15_d2_S_ShiftReg/SRL_SIG_reg[0][7]/D
+                            (rising edge-triggered cell FDRE clocked by ap_clk  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Path Group:             ap_clk
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (ap_clk rise@0.000ns - ap_clk rise@0.000ns)
+  Data Path Delay:        0.238ns  (logic 0.186ns (78.117%)  route 0.052ns (21.883%))
+  Logic Levels:           1  (LUT6=1)
+  Clock Path Skew:        0.022ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    0.432ns
+    Source Clock Delay      (SCD):    0.410ns
+    Clock Pessimism Removal (CPR):    -0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock ap_clk rise edge)     0.000     0.000 r  
+                                                      0.000     0.000 r  ap_clk (IN)
+                         net (fo=39718, unset)        0.410     0.410    relu_ap_fixed_16_8_5_0_0_ap_fixed_16_8_5_0_0_relu_config3_U0/ap_clk
+    SLICE_X35Y37         FDRE                                         r  relu_ap_fixed_16_8_5_0_0_ap_fixed_16_8_5_0_0_relu_config3_U0/ap_return_57_preg_reg[7]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X35Y37         FDRE (Prop_fdre_C_Q)         0.141     0.551 r  relu_ap_fixed_16_8_5_0_0_ap_fixed_16_8_5_0_0_relu_config3_U0/ap_return_57_preg_reg[7]/Q
+                         net (fo=1, routed)           0.052     0.603    layer2_out_57_U/U_mlp_hls_fifo_w16_d2_S_ShiftReg/ap_return_57_preg[7]
+    SLICE_X34Y37         LUT6 (Prop_lut6_I0_O)        0.045     0.648 r  layer2_out_57_U/U_mlp_hls_fifo_w16_d2_S_ShiftReg/SRL_SIG[0][7]_i_1__261/O
+                         net (fo=1, routed)           0.000     0.648    layer3_out_57_U/U_mlp_hls_fifo_w15_d2_S_ShiftReg/D[7]
+    SLICE_X34Y37         FDRE                                         r  layer3_out_57_U/U_mlp_hls_fifo_w15_d2_S_ShiftReg/SRL_SIG_reg[0][7]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock ap_clk rise edge)     0.000     0.000 r  
+                                                      0.000     0.000 r  ap_clk (IN)
+                         net (fo=39718, unset)        0.432     0.432    layer3_out_57_U/U_mlp_hls_fifo_w15_d2_S_ShiftReg/ap_clk
+    SLICE_X34Y37         FDRE                                         r  layer3_out_57_U/U_mlp_hls_fifo_w15_d2_S_ShiftReg/SRL_SIG_reg[0][7]/C
+                         clock pessimism              0.000     0.432    
+    SLICE_X34Y37         FDRE (Hold_fdre_C_D)         0.121     0.553    layer3_out_57_U/U_mlp_hls_fifo_w15_d2_S_ShiftReg/SRL_SIG_reg[0][7]
+  -------------------------------------------------------------------
+                         required time                         -0.553    
+                         arrival time                           0.648    
+  -------------------------------------------------------------------
+                         slack                                  0.096    
+
+Slack (MET) :             0.096ns  (arrival time - required time)
+  Source:                 relu_ap_fixed_16_8_5_0_0_ap_fixed_16_8_5_0_0_relu_config7_U0/ap_return_20_preg_reg[8]/C
+                            (rising edge-triggered cell FDRE clocked by ap_clk  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Destination:            layer7_out_20_U/U_mlp_hls_fifo_w15_d2_S_ShiftReg/SRL_SIG_reg[0][8]/D
+                            (rising edge-triggered cell FDRE clocked by ap_clk  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Path Group:             ap_clk
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (ap_clk rise@0.000ns - ap_clk rise@0.000ns)
+  Data Path Delay:        0.238ns  (logic 0.186ns (78.117%)  route 0.052ns (21.883%))
+  Logic Levels:           1  (LUT6=1)
+  Clock Path Skew:        0.022ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    0.432ns
+    Source Clock Delay      (SCD):    0.410ns
+    Clock Pessimism Removal (CPR):    -0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock ap_clk rise edge)     0.000     0.000 r  
+                                                      0.000     0.000 r  ap_clk (IN)
+                         net (fo=39718, unset)        0.410     0.410    relu_ap_fixed_16_8_5_0_0_ap_fixed_16_8_5_0_0_relu_config7_U0/ap_clk
+    SLICE_X95Y128        FDRE                                         r  relu_ap_fixed_16_8_5_0_0_ap_fixed_16_8_5_0_0_relu_config7_U0/ap_return_20_preg_reg[8]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X95Y128        FDRE (Prop_fdre_C_Q)         0.141     0.551 r  relu_ap_fixed_16_8_5_0_0_ap_fixed_16_8_5_0_0_relu_config7_U0/ap_return_20_preg_reg[8]/Q
+                         net (fo=1, routed)           0.052     0.603    layer6_out_20_U/U_mlp_hls_fifo_w16_d2_S_ShiftReg/ap_return_20_preg[8]
+    SLICE_X94Y128        LUT6 (Prop_lut6_I0_O)        0.045     0.648 r  layer6_out_20_U/U_mlp_hls_fifo_w16_d2_S_ShiftReg/SRL_SIG[0][8]_i_1__170/O
+                         net (fo=1, routed)           0.000     0.648    layer7_out_20_U/U_mlp_hls_fifo_w15_d2_S_ShiftReg/if_din[8]
+    SLICE_X94Y128        FDRE                                         r  layer7_out_20_U/U_mlp_hls_fifo_w15_d2_S_ShiftReg/SRL_SIG_reg[0][8]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock ap_clk rise edge)     0.000     0.000 r  
+                                                      0.000     0.000 r  ap_clk (IN)
+                         net (fo=39718, unset)        0.432     0.432    layer7_out_20_U/U_mlp_hls_fifo_w15_d2_S_ShiftReg/ap_clk
+    SLICE_X94Y128        FDRE                                         r  layer7_out_20_U/U_mlp_hls_fifo_w15_d2_S_ShiftReg/SRL_SIG_reg[0][8]/C
+                         clock pessimism              0.000     0.432    
+    SLICE_X94Y128        FDRE (Hold_fdre_C_D)         0.121     0.553    layer7_out_20_U/U_mlp_hls_fifo_w15_d2_S_ShiftReg/SRL_SIG_reg[0][8]
+  -------------------------------------------------------------------
+                         required time                         -0.553    
+                         arrival time                           0.648    
+  -------------------------------------------------------------------
+                         slack                                  0.096    
+
+Slack (MET) :             0.097ns  (arrival time - required time)
+  Source:                 layer7_out_14_U/U_mlp_hls_fifo_w15_d2_S_ShiftReg/SRL_SIG_reg[0][1]/C
+                            (rising edge-triggered cell FDRE clocked by ap_clk  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Destination:            layer7_out_14_U/U_mlp_hls_fifo_w15_d2_S_ShiftReg/SRL_SIG_reg[1][1]/D
+                            (rising edge-triggered cell FDRE clocked by ap_clk  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Path Group:             ap_clk
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (ap_clk rise@0.000ns - ap_clk rise@0.000ns)
+  Data Path Delay:        0.197ns  (logic 0.141ns (71.611%)  route 0.056ns (28.389%))
+  Logic Levels:           0  
+  Clock Path Skew:        0.022ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    0.432ns
+    Source Clock Delay      (SCD):    0.410ns
+    Clock Pessimism Removal (CPR):    -0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock ap_clk rise edge)     0.000     0.000 r  
+                                                      0.000     0.000 r  ap_clk (IN)
+                         net (fo=39718, unset)        0.410     0.410    layer7_out_14_U/U_mlp_hls_fifo_w15_d2_S_ShiftReg/ap_clk
+    SLICE_X111Y80        FDRE                                         r  layer7_out_14_U/U_mlp_hls_fifo_w15_d2_S_ShiftReg/SRL_SIG_reg[0][1]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X111Y80        FDRE (Prop_fdre_C_Q)         0.141     0.551 r  layer7_out_14_U/U_mlp_hls_fifo_w15_d2_S_ShiftReg/SRL_SIG_reg[0][1]/Q
+                         net (fo=2, routed)           0.056     0.607    layer7_out_14_U/U_mlp_hls_fifo_w15_d2_S_ShiftReg/SRL_SIG_reg[0]_0[1]
+    SLICE_X111Y80        FDRE                                         r  layer7_out_14_U/U_mlp_hls_fifo_w15_d2_S_ShiftReg/SRL_SIG_reg[1][1]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock ap_clk rise edge)     0.000     0.000 r  
+                                                      0.000     0.000 r  ap_clk (IN)
+                         net (fo=39718, unset)        0.432     0.432    layer7_out_14_U/U_mlp_hls_fifo_w15_d2_S_ShiftReg/ap_clk
+    SLICE_X111Y80        FDRE                                         r  layer7_out_14_U/U_mlp_hls_fifo_w15_d2_S_ShiftReg/SRL_SIG_reg[1][1]/C
+                         clock pessimism              0.000     0.432    
+    SLICE_X111Y80        FDRE (Hold_fdre_C_D)         0.078     0.510    layer7_out_14_U/U_mlp_hls_fifo_w15_d2_S_ShiftReg/SRL_SIG_reg[1][1]
+  -------------------------------------------------------------------
+                         required time                         -0.510    
+                         arrival time                           0.607    
+  -------------------------------------------------------------------
+                         slack                                  0.097    
+
+
+
+
+
+Pulse Width Checks
+--------------------------------------------------------------------------------------
+Clock Name:         ap_clk
+Waveform(ns):       { 0.000 4.000 }
+Period(ns):         8.000
+Sources:            { ap_clk }
+
+Check Type        Corner  Lib Pin             Reference Pin  Required(ns)  Actual(ns)  Slack(ns)  Location      Pin
+Min Period        n/a     RAMB36E1/CLKARDCLK  n/a            2.576         8.000       5.424      RAMB36_X4Y1   dense_resource_rf_gt_nin_rem0_ap_fixed_ap_fixed_16_8_5_0_0_config2_U0/w2_U/q0_reg_0/CLKARDCLK
+Min Period        n/a     RAMB36E1/CLKBWRCLK  n/a            2.576         8.000       5.424      RAMB36_X4Y1   dense_resource_rf_gt_nin_rem0_ap_fixed_ap_fixed_16_8_5_0_0_config2_U0/w2_U/q0_reg_0/CLKBWRCLK
+Min Period        n/a     RAMB36E1/CLKARDCLK  n/a            2.576         8.000       5.424      RAMB36_X1Y5   dense_resource_rf_gt_nin_rem0_ap_fixed_ap_fixed_16_8_5_0_0_config2_U0/w2_U/q0_reg_1/CLKARDCLK
+Low Pulse Width   Slow    FDRE/C              n/a            0.500         4.000       3.500      SLICE_X58Y26  ap_sync_reg_channel_write_layer2_out_63_reg/C
+Low Pulse Width   Fast    FDRE/C              n/a            0.500         4.000       3.500      SLICE_X58Y26  ap_sync_reg_channel_write_layer2_out_63_reg/C
+Low Pulse Width   Slow    FDRE/C              n/a            0.500         4.000       3.500      SLICE_X50Y23  ap_sync_reg_channel_write_layer2_out_63_reg_rep/C
+High Pulse Width  Slow    FDRE/C              n/a            0.500         4.000       3.500      SLICE_X58Y26  ap_sync_reg_channel_write_layer2_out_63_reg/C
+High Pulse Width  Fast    FDRE/C              n/a            0.500         4.000       3.500      SLICE_X58Y26  ap_sync_reg_channel_write_layer2_out_63_reg/C
+High Pulse Width  Slow    FDRE/C              n/a            0.500         4.000       3.500      SLICE_X50Y23  ap_sync_reg_channel_write_layer2_out_63_reg_rep/C
+
+
+

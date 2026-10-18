@@ -1,0 +1,12 @@
+{
+  "wns_ns": -0.011,
+  "tns_ns": -0.055,
+  "failing_endpoints": 5,
+  "met": false,
+  "fmax_mhz": 124.8,
+  "LUT": 16721.0,
+  "FF": 22104.0,
+  "BRAM_tile": 15.5,
+  "DSP": 148.0,
+  "minutes": 10.2
+}

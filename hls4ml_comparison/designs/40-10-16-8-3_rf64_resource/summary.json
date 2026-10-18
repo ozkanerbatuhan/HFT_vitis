@@ -1,0 +1,32 @@
+{
+  "topo": "40-10-16-8-3",
+  "rf": 64,
+  "strategy": "Resource",
+  "build_seconds": 172.4,
+  "report": {
+    "CSynthesisReport": {
+      "TargetClockPeriod": "8.00",
+      "EstimatedClockPeriod": "12.939",
+      "BestLatency": "266",
+      "WorstLatency": "270",
+      "IntervalMin": "80",
+      "IntervalMax": "80",
+      "BRAM_18K": "5",
+      "DSP": "10",
+      "FF": "14088",
+      "LUT": "17679",
+      "URAM": "0",
+      "AvailableBRAM_18K": "280",
+      "AvailableDSP": "220",
+      "AvailableFF": "106400",
+      "AvailableLUT": "53200",
+      "AvailableURAM": "0"
+    },
+    "VivadoSynthReport": {
+      "LUT": "8107",
+      "FF": "9587",
+      "BRAM_18K": "2.5",
+      "DSP48E": "10"
+    }
+  }
+}
