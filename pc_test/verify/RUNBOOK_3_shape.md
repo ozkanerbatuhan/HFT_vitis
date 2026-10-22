@@ -20,7 +20,7 @@ Kartsız yapılanlar (tamam):
 Vitis → `lwip_echo_server` → **Build**. Sonra BOOT.bin (mevcut bitstream ile):
 
 ```
-cd D:\vitis_projects\lwip_echo_server
+cd D:\30-akademik\hft-nn\hft-vitis\lwip_echo_server
 bootgen -image ..\verify_boot.bif -arch zynq -o BOOT.bin -w on
 ```
 

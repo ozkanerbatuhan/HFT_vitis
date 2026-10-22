@@ -7,15 +7,15 @@ rst -system
 after 2000
 
 # Program the FPGA with the bitstream
-fpga "D:/vivado projects/hft/hft.runs/impl_1/mlp_system_wrapper.bit"
+fpga "D:/30-akademik/hft-nn/vivado/hft.runs/impl_1/mlp_system_wrapper.bit"
 
 # PS7 init: bring up the Zynq hardware
 targets -set -nocase -filter {name =~ "*A9*#0"}
-loadhw -hw "D:/vitis_projects/mlp_platform/export/mlp_platform/hw/mlp_system_wrapper.xsa"
-source "D:/vitis_projects/mlp_platform/export/mlp_platform/hw/ps7_init.tcl"
+loadhw -hw "D:/30-akademik/hft-nn/hft-vitis/mlp_platform/export/mlp_platform/hw/mlp_system_wrapper.xsa"
+source "D:/30-akademik/hft-nn/hft-vitis/mlp_platform/export/mlp_platform/hw/ps7_init.tcl"
 ps7_init
 ps7_post_config
 
 # Download and run the ELF
-dow "D:/vitis_projects/lwip_echo_server/build/lwip_echo_server.elf"
+dow "D:/30-akademik/hft-nn/hft-vitis/lwip_echo_server/build/lwip_echo_server.elf"
 con

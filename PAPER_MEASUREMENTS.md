@@ -60,7 +60,7 @@ Boot'ta UART'a bir kez `TIMFREQ,<Hz>` basılır (sadece bilgi).
 Rebuild sonrası SD'deki BOOT.bin ESKİ elf'i içerir — yeniden paketlemek şart:
 1. Vitis Unified IDE'de sağ tık lwip_echo_server → *Create Boot Image* (mevcut
    `BIF_HFT.bif` kullanılabilir), **veya** XSCT/komut satırından:
-   `bootgen -arch zynq -image D:\vitis_projects\BIF_HFT.bif -w -o D:\vitis_projects\BOOT.bin`
+   `bootgen -arch zynq -image D:\30-akademik\hft-nn\hft-vitis\BIF_HFT.bif -w -o D:\30-akademik\hft-nn\hft-vitis\BOOT.bin`
    (BIF zaten doğru sırayla: fsbl.elf → mlp_system_wrapper.bit → build\lwip_echo_server.elf)
 2. Yeni `BOOT.bin`'i SD'nin FAT32 birinci bölümüne kopyala (eskisinin üstüne).
 3. Zedboard boot jumper'ları SD konumunda kalıyor (değişiklik yok); kartı tak, aç.

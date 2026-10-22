@@ -92,7 +92,7 @@ InputShape: !!python/tuple
 InputShapes:
   input_1:
   - 40
-OutputDir: D:/hls_prj\40-10-16-8-3_rf16_resource
+OutputDir: D:/30-akademik/hft-nn/hls\40-10-16-8-3_rf16_resource
 OutputPredictions: null
 OutputShapes:
   layer8_out:
